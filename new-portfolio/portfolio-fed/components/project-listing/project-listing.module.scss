@@ -1,0 +1,35 @@
+@import "./base/variables";
+@import "./base/typography";
+@import "./base/breakpoints";
+
+.projectListing {
+    margin: 165px auto;
+    max-width: 55rem;   
+    padding: 0 15px;
+
+    h2 {
+        font-weight: $font-weight--medium;
+        font-family: $font-family-secondary;
+        @include font-size($font-medium);
+        position: relative;
+        display: flex;
+        align-items: center;
+        color: $white;
+
+        @include media-breakpoint-down(sm) {
+            @include font-size($font-regular);
+        }
+    }
+
+    section {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-gap: 1.75rem;
+        gap: 1.75rem;
+
+        @include media-breakpoint-down(sm) {
+            grid-template-columns: repeat(1, minmax(0, 1fr));
+
+        }
+    }
+}

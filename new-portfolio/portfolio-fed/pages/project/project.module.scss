@@ -1,0 +1,216 @@
+@import "./base/variables";
+@import "./base/typography";
+@import "./base/breakpoints";
+
+.project {
+    max-width: 70vw;
+    margin: 0 auto;
+    padding: 50px 0;
+
+    @include media-breakpoint-down(sm) {
+        max-width: initial;
+    }
+
+    &__header {
+        display: flex;
+        gap: 50px;
+
+        @include media-breakpoint-down(md) {
+            flex-wrap: wrap;
+            gap: 0px;
+            flex-direction: column-reverse;
+        }
+
+        h2 {
+            @include font-size($font-xxx-large);
+            font-family: $font-family-secondary;
+            font-weight: $font-weight--regular;
+            color: $pleasant-purple;
+            margin: 30px 0 30px;
+            line-height: 70px;
+
+            @include media-breakpoint-down(sm) {
+                @include font-size($font-xx-large);
+                margin-bottom: 15px;
+                line-height: 40px;
+                margin-top: 0px;
+            }
+        }
+
+        h6 {
+            @include font-size($font-regular);
+            font-family: $font-family-secondary;
+            color: $pleasant-purple;
+            font-weight: $font-weight--medium;
+            margin-bottom: 5px;
+            margin-top: 0;
+        }
+
+        ul {
+            padding: 0;
+            margin: 0 0 30px 0;
+
+            li {
+                font-weight: $font-weight--light;
+                @include font-size($font-regular);
+                margin-bottom: 5px;
+                list-style-type: none;
+                line-height: 30px;
+                color: $pleasant-purple;
+            }
+        }
+    }
+
+    &__image {
+        width: 100%;
+        margin-bottom: 30px;
+        height: 450px;
+        flex: 0 0 70%;
+
+        @include media-breakpoint-down(md) {
+            flex: 0 0 100%;
+            min-height: 350px;
+        }
+
+        > span {
+            width: 100% !important;
+            height: 100% !important;
+
+            @include media-breakpoint-down(md) {
+                flex: 0 0 100%;
+                min-height: 350px;
+            }
+        }
+    }
+
+    &__content {
+        flex: 0 0 70%;
+        margin: 0px auto;
+        padding: 30px 0;
+
+        @include media-breakpoint-down(sm) {
+            flex: 0 0 100%;
+        }
+
+        p {
+            color: $pleasant-purple;
+            font-weight: $font-weight--light;
+            @include font-size($font-regular);
+            line-height: 30px;
+        }
+
+        h5 {
+            @include font-size($font-medium);
+            margin: 0 0 10px;
+            color: $pleasant-purple;
+            font-weight: $font-weight--semibold;
+
+            @include media-breakpoint-down(sm) {
+                @include font-size($font-regular);
+            }
+        }
+
+        div {
+            white-space: break-spaces;
+        }
+
+        img {
+            width: 100%;
+            margin-bottom: 30px;
+            height: 510px;
+            object-fit: cover;
+
+            @include media-breakpoint-down(md) {
+                height: 350px;
+            }
+
+            @include media-breakpoint-down(sm) {
+                height: 250px;
+            }
+            > span {
+                width: 100% !important;
+                height: 100% !important;
+            }
+        }
+    }
+
+    section {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+
+        @include media-breakpoint-down(sm) {
+            flex-wrap: wrap;
+        }
+
+        aside {
+            flex: 0 0 30%;
+            margin-top: 30px;
+            margin-right: 50px;
+            position: sticky;
+            top: 170px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            @include media-breakpoint-down(sm) {
+                display: none;
+            }
+
+            h6 {
+                color: $pleasant-purple;
+                margin-bottom: 15px;
+            }
+
+            ul {
+                margin: 0;
+                padding: 0 0 0 20px;
+
+                li {
+                    list-style-type: none;
+                    position: relative;
+                    display: flex;
+                    align-items: center;
+                    margin-bottom: 20px;
+                    color: $pleasant-purple;
+
+                    a {
+                        color: $pleasant-purple;
+                        @include font-size($font-regular);
+                        font-weight: $font-weight--light;
+                    }
+
+                    &:last-of-type {
+                        &:before {
+                            content: initial;
+                        }
+                    }
+
+                    &:before {
+                        content: "";
+                        width: 1px;
+                        height: 40px;
+                        position: absolute;
+                        bottom: -30px;
+                        background-color: $pleasant-purple;
+                        left: -15px;
+                        opacity: 0.6;
+                    }
+
+                    &:after {
+                        content: "";
+                        width: 10px;
+                        height: 10px;
+                        border: 2px solid $white;
+                        border-radius: 100px;
+                        background-color: $dark-main;
+                        opacity: 0.6;
+                        position: absolute;
+                        box-sizing: border-box;
+                        left: -20px;
+                    }
+                }
+            }
+        }
+    }
+}

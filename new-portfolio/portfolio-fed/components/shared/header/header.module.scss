@@ -1,0 +1,18 @@
+@import "./base/variables";
+@import "./base/typography";
+@import "./base/breakpoints";
+
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background: $dark-main;
+
+    &--white {
+        background-color: $white;
+
+        svg:last-child {
+            stroke: $pleasant-purple !important;
+        }
+    }
+}

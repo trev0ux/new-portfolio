@@ -1,0 +1,133 @@
+@import "./base/variables";
+@import "./base/typography";
+@import "./base/breakpoints";
+
+.project {
+    cursor: pointer;
+    perspective: 500px;
+
+    &:nth-child(2), &:nth-child(4) {
+        margin-top: 40px;
+
+        @include media-breakpoint-down(xs) {
+            margin-top: 0;
+        }
+    }
+
+    @include media-breakpoint-down(xs) {
+        margin-bottom: 30px;
+    }
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    h3 {
+        @include font-size($font-medium);
+        font-weight: $font-weight--bold;
+        line-height: 30px;
+        margin: 0;
+        color: $white;
+        font-family: $font-family-secondary;
+
+        @include media-breakpoint-down(md) {
+            @include font-size($font-regular)
+        }
+    }
+
+    h4 {
+        color: #A9ACBB;
+        line-height: 30px;
+        font-family: $font-family-secondary;
+        font-weight: $font-weight--bold;
+        @include font-size($font-regular);
+        margin: 0;
+
+        @include media-breakpoint-down(md) {
+            @include font-size($font-small)
+        }
+    }
+
+    h6 {
+        @include font-size($font-regular);
+        font-weight: $font-weight--light;
+        color: #A9ACBB;
+        margin: 0;
+
+        @include media-breakpoint-down(md) {
+            @include font-size($font-small)
+        }
+    }
+
+    p {
+        margin-bottom: 0px;
+        color: $white;
+        @include font-size($font-regular);
+        font-weight: $font-weight--light;
+
+        @include media-breakpoint-down(md) {
+            @include font-size($font-small)
+        }
+    }
+
+    &__image  {
+        width: 100%;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        height: 540px;
+
+        @include media-breakpoint-down(sm) {
+            height: 350px;
+        }
+
+        > span {
+            border-radius: 10px;
+            height: 100% !important;
+        }
+    
+    }
+
+    &__tags {
+        display: flex;
+        margin-top: 10px;
+
+        span {
+            background-color: $pleasant-purple;
+            border-radius: 4px;
+            display: block;
+            padding: 5px 15px;
+            color: $white;
+            margin-right: 10px;
+            font-weight: $font-weight--regular;
+            @include font-size($font-small);
+            transition: all .2s;
+
+
+            &:hover {
+                background-color: rgba($pleasant-purple, 0.6);
+            }
+        }
+    }
+
+    &__roles {
+        display: flex;
+
+        span {
+            font-weight: $font-weight--regular;
+            @include font-size($font-small);
+            color: $white;
+            border-radius: 5px;
+            display: block;
+            margin: 5px 0 10px;
+
+            @include media-breakpoint-down(md) {
+                @include font-size($font-x-small)
+            }
+
+            &:nth-of-type(1) {
+                margin-right: 10px;
+            }
+        }
+    }
+}

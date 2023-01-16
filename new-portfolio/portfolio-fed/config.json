@@ -1,0 +1,4 @@
+{
+    "STRAPI_URL": "http://localhost:1337",
+    "STRAPI_DOMAIN": "strapi-qt33.onrender.com"
+}

@@ -1,0 +1,48 @@
+@import "./base/variables";
+@import "./base/typography";
+@import "./base/breakpoints";
+
+.navMobile {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    background: $dark-main;
+    margin: 0;
+
+    @include media-breakpoint-up(lg) {
+        display: none;
+    }
+
+    li {
+        list-style-type: none;
+        margin-bottom: 30px;
+        padding-left: 20px;
+
+        a {
+            @include font-size($font-xx-large);
+            font-weight: $font-weight--bold;
+            font-family: $font-family-secondary;
+            color: $white;
+            text-decoration: none;
+        }
+    }
+}
+
+.burger {
+    display: none;
+    border: none;
+    background: none;
+    cursor: pointer;
+    stroke: $white;
+
+    @include media-breakpoint-down(lg) {
+        display: block;
+    }
+}

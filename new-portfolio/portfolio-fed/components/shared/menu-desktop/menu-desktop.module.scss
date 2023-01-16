@@ -1,0 +1,97 @@
+@import "./base/variables";
+@import "./base/typography";
+@import "./base/breakpoints";
+
+.navbar {
+    padding: 45px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    max-width: 92vw;
+    margin: 0 auto;
+
+    @include media-breakpoint-down(sm) {
+        padding: 20px 0;
+        background-color: $dark-main;
+    }
+
+    &--white {
+        background-color: $white;
+
+        h1, a {
+            color: $pleasant-purple !important;
+            opacity: 1 !important;
+        }
+
+        .navbar__logo svg {
+            fill: $pleasant-purple;
+        }
+        
+    }
+
+    &__toggle {
+        display: none;
+    }
+
+    &__logo {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+
+        h1 {
+            @include font-size($font-regular);
+            font-weight: $font-weight--medium;
+            line-height: 30px;
+            margin: 0;
+            color: $white;
+        }
+
+        svg {
+            width: 25px;
+            height: 25px;
+            fill: $white;
+            margin-right: 8px;
+        }
+
+        @include media-breakpoint-down(sm) {
+            @include font-size($font-small);
+        }
+    }
+    
+    > div {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    a {
+        text-decoration: none;
+        color: $white;
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        @include media-breakpoint-down(lg) {
+            display: none;
+        }
+
+        li {
+            list-style-type: none;
+            display: flex;
+            align-items: center;
+            margin-left: 40px;
+
+            a {
+                opacity: 0.5;
+                transition-duration: 0.15s;
+
+                &:hover {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}

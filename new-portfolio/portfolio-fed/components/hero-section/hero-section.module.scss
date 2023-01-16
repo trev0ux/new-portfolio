@@ -1,0 +1,77 @@
+@import "./base/variables";
+@import "./base/typography";
+@import "./base/breakpoints";
+
+.hero {
+    max-width: 630px;
+    margin: 80px auto;
+
+    @include media-breakpoint-down(sm) {
+        margin: 60px auto;
+        max-width: 360px
+
+    }
+
+    @include media-breakpoint-down(xs) {
+        margin: 60px auto;
+    }
+
+    > div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    h1 {
+      @include font-size($font-x-large);
+      font-weight: $font-weight--medium;
+      font-family: $font-family-secondary;
+      line-height: 60px;  
+      margin-bottom: 15px;
+      color: $white;
+
+      @include media-breakpoint-down (sm) {
+          @include font-size($font-x-big);
+          line-height: 30px;
+      }
+    }
+
+    p {
+      @include font-size($font-medium);
+      font-weight: $font-weight--semibold;
+      line-height: 30px;  
+      margin-top: 0;
+      margin-bottom: 40px;
+      color: $grey-one;
+
+      @include media-breakpoint-down(sm) {
+          @include font-size($font-small);
+      }
+    }
+
+    svg {
+        width: 22px;
+        height: 28px;
+        margin: 0 auto;
+
+        rect:nth-child(1) {
+            transform: translateX(0%);
+            animation: move 2s linear infinite;
+        }
+    }
+
+    @keyframes move {
+        0% {
+            transform: translate(0%, 0px);
+            opacity: 1;
+        }
+        50% {
+            transform: translate(0%, 10px);
+            opacity: 1;
+        }
+        100% {
+            transform: translate(0%, 15px);
+            opacity: 0;
+        }
+    }
+}
