@@ -1,0 +1,39 @@
+{
+  "kind": "singleType",
+  "collectionName": "footers",
+  "info": {
+    "singularName": "footer",
+    "pluralName": "footers",
+    "displayName": "Footer"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "instagramUrl": {
+      "type": "string"
+    },
+    "linkedinUrl": {
+      "type": "string"
+    },
+    "dribbbleUrl": {
+      "type": "string"
+    },
+    "githubUrl": {
+      "type": "string"
+    },
+    "instagramTitle": {
+      "type": "string"
+    },
+    "linkedinTitle": {
+      "type": "string"
+    },
+    "dribbbleTitle": {
+      "type": "string"
+    },
+    "githubTitle": {
+      "type": "string"
+    }
+  }
+}
