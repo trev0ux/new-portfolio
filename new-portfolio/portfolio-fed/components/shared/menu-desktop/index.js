@@ -20,18 +20,18 @@ export default function Navbar({ toggle, whiteHeader, resumeLink }) {
                 <ul>
                     <li className="nav-item">
                         <Link href="/about-me">
-                            <a>About me</a>
+                            About me
                         </Link>
                     </li>
                     <li className="nav-item">
                         <Link href="/#work" scroll={false}>
-                            <a>Work</a>
+                            Work
                         </Link>
                     </li>
                     <li className="nav-item"><Link className="nav-link" href={`${resumeLink}`} passHref={true}>Resume</Link></li>
                     <li className="nav-item">
                         <Link href="/#footer" scroll={false}>
-                            <a>Contact</a>
+                            Contact
                         </Link>
                     </li>
                 </ul>

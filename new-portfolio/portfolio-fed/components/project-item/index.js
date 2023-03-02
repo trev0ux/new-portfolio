@@ -33,8 +33,8 @@ export default function Project(props) {
             <div className={styles.project__image}>
               <NextImage
                 image={props.image}
-                height="100%"
-                width="100%"
+                height={1000}
+                width={1000}
                 alt={props.alt}
                 objectFit="cover"
                 sizes="(max-width: 768px) 400px,

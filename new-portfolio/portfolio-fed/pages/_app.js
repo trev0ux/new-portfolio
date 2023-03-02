@@ -21,10 +21,6 @@ const MyApp = ({ Component, pageProps }) => {
     <>
       <Head>
         <title>Lucas Amorim</title>
-        <link rel="stylesheet" data-href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&display=swap"></link>
-        <link
-          rel="shortcut icon"
-        />
       </Head>
       <main className={sora.className}>
         <GlobalContext.Provider value={global.attributes}>
