@@ -8,8 +8,7 @@ module.exports = {
   images: {
     domains: ["localhost"],
     path: '/_next/image',
-    loader: 'default',
-    allowFutureImage: true
+    loader: 'default'
   },
   webpack(config) {
     config.module.rules.push({

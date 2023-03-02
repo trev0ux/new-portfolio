@@ -113,8 +113,8 @@
 
     h4 {
         font-family: $font-family-secondary;
-        font-weight: $font-weight--medium;
-        @include font-size($font-xx-large);
+        font-weight: $font-weight--semibold;
+        @include font-size($font-x-large);
         line-height: 48px;
         text-align: center;
         margin: 40px 0;

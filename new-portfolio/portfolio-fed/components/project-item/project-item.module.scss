@@ -71,15 +71,21 @@
         }
     }
 
+    &__perspective {
+        border-radius: 10px;
+        overflow: hidden;
+        display: block;
+        margin-bottom: 15px;
+    }
+
     &__image  {
         width: 100%;
-        border-radius: 10px;
-        margin-bottom: 20px;
         height: 540px;
 
         @include media-breakpoint-down(sm) {
             height: 350px;
         }
+        
 
         > span {
             border-radius: 10px;
@@ -89,28 +95,33 @@
     }
 
     &__tags {
-        display: flex;
         margin-top: 10px;
 
-        span {
-            background-color: $pleasant-purple;
-            border-radius: 4px;
-            display: block;
-            padding: 5px 15px;
-            color: $white;
-            margin-right: 10px;
-            font-weight: $font-weight--regular;
-            @include font-size($font-small);
-            transition: all .2s;
+        ul {
+            padding: 0;
+            margin: 0;
+            display: flex;
 
-
-            &:hover {
-                background-color: rgba($pleasant-purple, 0.6);
+            li {
+                background-color: $pleasant-purple;
+                border-radius: 4px;
+                display: block;
+                padding: 5px 15px;
+                color: $white;
+                margin-right: 10px;
+                font-weight: $font-weight--regular;
+                @include font-size($font-small);
+                transition: all .2s;
+    
+    
+                &:hover {
+                    background-color: rgba($pleasant-purple, 0.6);
+                }
             }
         }
     }
 
-    &__roles {
+    &__description {
         display: flex;
 
         span {
@@ -122,7 +133,7 @@
             margin: 5px 0 10px;
 
             @include media-breakpoint-down(md) {
-                @include font-size($font-x-small)
+                @include font-size($font-small)
             }
 
             &:nth-of-type(1) {

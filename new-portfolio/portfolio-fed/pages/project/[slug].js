@@ -7,13 +7,13 @@ import { motion } from "framer-motion";
 
 const ease = [0.08, 0.37, 0.45, 0.89];
 
-export default function projectItem({ project }) {
-  console.log(project)
+export default function projectItem({ project, footer }) {
+  console.log(project);
   return (
-    <Layout className="white-bg" whiteFooter="footer--white" whiteHeader={true}>
+    <Layout className="white-bg" whiteFooter="footer--white" whiteHeader={true} footer={footer}>
       <div className='container'>
         <div className={styles.project}>
-          <header className={styles.project__header}>
+          <header className={styles.project__header}> 
             <motion.div
               className="container"
               initial="hidden"
@@ -42,7 +42,7 @@ export default function projectItem({ project }) {
               className={styles.project__image}
             >
               <NextImage
-                image={project.Banner}
+                image={project.attributes.Banner}
                 height={450}
                 width={920}
                 objectFit="cover"
@@ -76,14 +76,12 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const projectItem = await fetchAPI("/projects", {
-    filters: {
-      slug: params.slug,
-    },
-    populate: ["image", "Banner"],
-  });
+  const [projectRes, footerRes] = await Promise.all([
+    fetchAPI("/projects", { populate: ["image", "Banner"], filters: {slug: params.slug}}),
+    fetchAPI("/footer"),
+  ])
   return {
-    props: { project: projectItem.data[0] },
+    props: { project: projectRes.data[0], footer: footerRes.data.attributes },
     revalidate: 1,
   };
 }

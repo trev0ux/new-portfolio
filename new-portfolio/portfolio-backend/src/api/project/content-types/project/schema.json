@@ -39,14 +39,27 @@
       "type": "richtext"
     },
     "Banner": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
+    },
+    "externalLink": {
+      "type": "string"
+    },
+    "company": {
+      "type": "string"
+    },
+    "shortDescription": {
+      "type": "string"
+    },
+    "tags": {
+      "type": "richtext"
     }
   }
 }

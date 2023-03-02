@@ -4,7 +4,8 @@
   "info": {
     "singularName": "footer",
     "pluralName": "footers",
-    "displayName": "Footer"
+    "displayName": "Footer",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -33,6 +34,24 @@
       "type": "string"
     },
     "githubTitle": {
+      "type": "string"
+    },
+    "question": {
+      "type": "string"
+    },
+    "workTogether": {
+      "type": "string"
+    },
+    "emailLink": {
+      "type": "string"
+    },
+    "emailText": {
+      "type": "string"
+    },
+    "copyright": {
+      "type": "string"
+    },
+    "developedBy": {
       "type": "string"
     }
   }

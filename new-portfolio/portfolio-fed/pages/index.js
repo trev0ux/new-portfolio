@@ -1,29 +1,27 @@
-/* eslint-disable react/jsx-key */
-import Layout from '../components/layout';
+import Home from "./home";
 import { fetchAPI } from '../lib/api';
 
-import ProjectListing from '../components/project-listing';
-import HeroSection from '../components/hero-section';
-
-export default function Home({ projects, homepage }) {
-  console.log(projects)
+export default function Index({ projects, homepage, footer, header }) {
   return (
-    <Layout>
-      <HeroSection hero={homepage}/>
-      <ProjectListing projectListing={projects} />
-    </Layout>
+    <Home projects={projects} homepage={homepage} footer={footer} header={header} />
   )
 }
 
-
 export async function getStaticProps() {
-  const [projectsRes, homepageRes] = await Promise.all([
-    fetchAPI("/projects", { populate: ["image"]}),
-    fetchAPI("/homepage")
+  const [headerRes, projectsRes, homepageRes, footerRes] = await Promise.all([
+    fetchAPI("/header"),
+    fetchAPI("/projects", { populate: ["image"] }),
+    fetchAPI("/homepage"),
+    fetchAPI("/footer"),
   ])
   //const homepage = await fetchAPI("/homepage")
   return {
-    props: { projects: projectsRes.data, homepage: homepageRes.data.attributes },
+    props: {
+      header: headerRes.data.attributes,
+      projects: projectsRes.data,
+      homepage: homepageRes.data.attributes,
+      footer: footerRes.data.attributes
+    },
     revalidate: 1,
   };
 }

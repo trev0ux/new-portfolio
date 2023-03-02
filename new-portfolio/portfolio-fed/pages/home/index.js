@@ -1,6 +1,9 @@
-import styles from "./hero-section.module.scss";
+/* eslint-disable react/jsx-key */
+import styles from "./home.module.scss";
+import Layout from '../../components/layout';
 import { motion } from "framer-motion"
 import Mouse from '../../assets/mouse.svg';
+import ProjectListing from '../../components/project-listing';
 
 const visible = { opacity: 1, y: 0, transition: { duration: 0.5 } };
 const itemVariants = {
@@ -8,9 +11,9 @@ const itemVariants = {
   visible
 };
 
-export default function HeroSection({hero}) {
+export default function Home({ projects, homepage, footer, header }) {
     return (
-        <>
+        <Layout header={header} footer={footer}>
             <motion.section
                 initial="hidden"
                 animate="visible"
@@ -31,15 +34,17 @@ export default function HeroSection({hero}) {
                                 }
                             }
                         >
-                            {hero.Title}
+                            {homepage.Title}
                         </motion.h1>
                         <motion.p variants={itemVariants}>
-                            {hero.Description}
+                            {homepage.Description}
                         </motion.p>
                         <Mouse />
                     </div>
                 </section>
             </motion.section>
-        </>
+            <ProjectListing projectListing={projects} />
+        </Layout>
     )
 }
+

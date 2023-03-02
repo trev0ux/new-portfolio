@@ -24,7 +24,7 @@
         h2 {
             @include font-size($font-xxx-large);
             font-family: $font-family-secondary;
-            font-weight: $font-weight--regular;
+            font-weight: $font-weight--semibold;
             color: $pleasant-purple;
             margin: 30px 0 30px;
             line-height: 70px;
@@ -41,7 +41,7 @@
             @include font-size($font-regular);
             font-family: $font-family-secondary;
             color: $pleasant-purple;
-            font-weight: $font-weight--medium;
+            font-weight: $font-weight--semibold;
             margin-bottom: 5px;
             margin-top: 0;
         }
@@ -127,6 +127,7 @@
             @include media-breakpoint-down(sm) {
                 height: 250px;
             }
+
             > span {
                 width: 100% !important;
                 height: 100% !important;

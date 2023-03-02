@@ -1,9 +1,8 @@
-import * as React from "react";
 import { useRef } from "react";
 import MenuDesktop from "../menu-desktop";
 import { motion, useCycle } from "framer-motion";
 import { useDimensions } from "../../use-dimensions";
-import { MenuMobile } from "../menu-mobile/index";
+import MenuMobile  from "../menu-mobile";
 import styles from "./header.module.scss";
 
 const sidebar = {
@@ -28,7 +27,7 @@ const sidebar = {
     }
 };
 
-export default function Header({whiteHeader}) {
+export default function Header({whiteHeader, props}) {
     const [isOpen, toggleOpen] = useCycle(false, true);
     const containerRef = useRef(null);
     const { height } = useDimensions(containerRef);
@@ -41,9 +40,9 @@ export default function Header({whiteHeader}) {
                 ref={containerRef}
             >
                 <motion.nav variants={sidebar}>
-                    <MenuMobile />
+                    <MenuMobile resumeLink={props.resumeLink} />
                 </motion.nav>
-                <MenuDesktop whiteHeader={whiteHeader && !isOpen ? true : false} toggle={() => toggleOpen()} isOpen={isOpen} />
+                <MenuDesktop whiteHeader={whiteHeader && !isOpen ? true : false} resumeLink={props.resumeLink} toggle={() => toggleOpen()} isOpen={isOpen} />
             </motion.header>
     )
 }

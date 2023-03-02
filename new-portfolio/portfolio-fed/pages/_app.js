@@ -3,9 +3,16 @@ import Head from "next/head";
 import { createContext } from "react";
 import { fetchAPI } from "../lib/api";
 import "../styles/globals.scss";
+// import localFont from 'next/font/local';
+import { Sora } from 'next/font/google';
 
 // Store Strapi Global object in context
 export const GlobalContext = createContext({});
+
+const sora = Sora({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700']
+})
 
 const MyApp = ({ Component, pageProps }) => {
   const { global } = pageProps;
@@ -13,13 +20,17 @@ const MyApp = ({ Component, pageProps }) => {
   return (
     <>
       <Head>
+        <title>Lucas Amorim</title>
+        <link rel="stylesheet" data-href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&display=swap"></link>
         <link
           rel="shortcut icon"
         />
       </Head>
-      <GlobalContext.Provider value={global.attributes}>
-        <Component {...pageProps} />
-      </GlobalContext.Provider>
+      <main className={sora.className}>
+        <GlobalContext.Provider value={global.attributes}>
+          <Component {...pageProps} />
+        </GlobalContext.Provider>
+      </main>
     </>
   );
 };

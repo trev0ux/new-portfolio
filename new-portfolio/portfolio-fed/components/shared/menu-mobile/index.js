@@ -1,6 +1,5 @@
-import * as React from "react";
 import { motion } from "framer-motion";
-import { MenuItem } from "./menu-item";
+import MenuItem from "./menu-item";
 import styles from "./menu-mobile.module.scss";
 
 const variants = {
@@ -12,17 +11,19 @@ const variants = {
   }
 };
 
-export const MenuMobile = () => (
-  <motion.ul
-  className={styles.navMobile}
-    variants={variants}>
-    {itemIds.map(i => (
-      <MenuItem item={i} key={i}>
-      </MenuItem>
-    ))}
-  </motion.ul>
-);
+const MenuMobile = ({resumeLink}) => {
+  const itemIds = [{id: 1, item: "About me", link: "/about-me"}, { id: 2, item: "Resume", link: `${resumeLink}`, passHref: true} , {id: 3, item: "Work", link: "/#work"}, {id: 4, item: "Contact", link: "/#footer"}];
 
-const itemIds = ["About me", "Resume", "Contact"];
+  return (
+    <motion.ul
+      className={styles.navMobile}
+      variants={variants}>
+      {itemIds.map(i => (
+        <MenuItem item={i.item} link={i.link} key={i.id} passHref={i.passHref}>
+        </MenuItem>
+      ))}
+    </motion.ul>
+  )
+};
 
-const itens = ["About me", "Resume", "Contact"]
+export default MenuMobile;

@@ -20,15 +20,14 @@ const variants = {
 };
 
 
-export const MenuItem = ({ item }) => {
-  const link = item.replace(/\s+/g, '-').toLowerCase();
+export default function MenuItem({ item, link, setHref }) {
   return (
     <motion.li
       variants={variants}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.95 }}
     >
-      <Link href={`/${link}`}>
+      <Link href={link} passHref={setHref}>
         {item}
       </Link>
     </motion.li>

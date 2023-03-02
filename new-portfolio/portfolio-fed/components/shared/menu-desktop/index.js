@@ -1,15 +1,13 @@
 import Link from 'next/link'
 import styles from "./menu-desktop.module.scss";
-import Logo from "../../../assets/logo.svg"
 import { MenuToggle } from '../menu-mobile/menu-toggle';
 
 
-export default function Navbar({ toggle, whiteHeader }) {
+export default function Navbar({ toggle, whiteHeader, resumeLink }) {
     return (
         <nav className={`${styles.navbar} ${whiteHeader ? styles["navbar--white"] : ""}`} >
             <Link href="/">
                 <div className={styles.navbar__logo}>
-                    <Logo />
                     <h1>
                         Lucas Amorim
                     </h1>
@@ -26,11 +24,16 @@ export default function Navbar({ toggle, whiteHeader }) {
                         </Link>
                     </li>
                     <li className="nav-item">
-                        <Link href="/about-me">
+                        <Link href="/#work" scroll={false}>
                             <a>Work</a>
                         </Link>
                     </li>
-                    <li className="nav-item"><a className="nav-link" href="#">Resume</a></li>
+                    <li className="nav-item"><Link className="nav-link" href={`${resumeLink}`} passHref={true}>Resume</Link></li>
+                    <li className="nav-item">
+                        <Link href="/#footer" scroll={false}>
+                            <a>Contact</a>
+                        </Link>
+                    </li>
                 </ul>
             </div>
             <MenuToggle toggle={toggle} />

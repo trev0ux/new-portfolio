@@ -12,25 +12,16 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Title": {
+    "title": {
       "type": "string"
     },
-    "Subtitle": {
+    "subtitle": {
       "type": "string"
     },
-    "Description": {
+    "description": {
       "type": "richtext"
     },
-    "SubtitleExperience": {
-      "type": "string"
-    },
-    "Role1": {
-      "type": "string"
-    },
-    "Company1": {
-      "type": "string"
-    },
-    "YearWorking1": {
+    "subtitleExperience": {
       "type": "string"
     },
     "image": {
@@ -43,6 +34,9 @@
         "videos",
         "audios"
       ]
+    },
+    "experience": {
+      "type": "richtext"
     }
   }
 }

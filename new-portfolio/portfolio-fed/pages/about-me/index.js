@@ -3,12 +3,13 @@ import Layout from "../../components/layout";
 import NextImage from "../../components/image";
 import { motion } from "framer-motion";
 import { fetchAPI } from '../../lib/api';
+import ReactMarkdown from 'react-markdown';
 
 const ease = [0.08, 0.37, 0.45, 0.89];
 
-export default function AboutMe({ aboutMe }) {
+export default function props({ header, props, footer }) {
     return (
-        <Layout>
+        <Layout header={header} footer={footer}>
             <div className={styles.about}>
                 <motion.div
                     className="container"
@@ -29,7 +30,7 @@ export default function AboutMe({ aboutMe }) {
                             initial={{ x: -100 }}
                             animate={{ x: 0, transition: { delay: 0.5, duration: 1, ease } }}
                         >
-                            {aboutMe.Title}
+                            {props.title}
                         </motion.h2>
                         <motion.div initial={{ x: 100, opacity: 0 }}
                             animate={{ x: 0, transition: { duration: 1, ease }, opacity: 1 }}
@@ -37,11 +38,11 @@ export default function AboutMe({ aboutMe }) {
                         >
                             <div>
                                 <NextImage
-                                    image={aboutMe.image}
+                                    image={props.image}
                                     height={380}
                                     width={645}
                                     objectFit="cover"
-                                    alt=""
+                                    alt="Lucas Amorim imagem"
                                 />
                             </div>
                         </motion.div>
@@ -62,25 +63,18 @@ export default function AboutMe({ aboutMe }) {
                     }
                 >
                     <article className={styles.about__description}>
-                        <h3>{aboutMe.Subtitle}</h3>
+                        <h3>{props.subtitle}</h3>
                         <p>
-                            {aboutMe.Description}
+                            {props.description}
                         </p>
                     </article>
                     <article className={styles.about__experience}>
-                        <h3>{aboutMe.SubtitleExperience}</h3>
-                        <ul>
-                            <li>
-                                <h4>{aboutMe.Role1}</h4>
-                                <h5>{aboutMe.Company1}</h5>
-                                <p>{aboutMe.YearWorking1}</p>
-                            </li>
-                            <li>
-                                <h4>{aboutMe.Role2}</h4>
-                                <h5>{aboutMe.Company2}</h5>
-                                <p>{aboutMe.YearWorking2}</p>
-                            </li>
-                        </ul>
+                        <h3>{props.subtitleExperience}</h3>
+                        <div className={styles.about__experienceList}>
+                            <ReactMarkdown>
+                                {props.experience}
+                            </ReactMarkdown>
+                        </div>
                     </article>
                 </motion.div>
             </div>
@@ -89,9 +83,17 @@ export default function AboutMe({ aboutMe }) {
 }
 
 export async function getStaticProps() {
-    const aboutMeRes = await fetchAPI("/about-me", { populate: ["image"] })
+    const [headerRes, propsRes, footerRes] = await Promise.all([
+        fetchAPI("/header"),
+        fetchAPI("/about-me", { populate: ["image"] }),
+        fetchAPI("/footer")
+    ])
     return {
-        props: { aboutMe: aboutMeRes.data.attributes },
+        props: { 
+            header: headerRes.data.attributes, 
+            props: propsRes.data.attributes, 
+            footer: footerRes.data.attributes 
+        },
         revalidate: 1,
     };
 }

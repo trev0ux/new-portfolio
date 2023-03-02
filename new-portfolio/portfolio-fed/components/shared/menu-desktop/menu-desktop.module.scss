@@ -18,7 +18,7 @@
     }
 
     &--white {
-        background-color: $white;
+        background-color: $light-pink;
 
         h1, a {
             color: $pleasant-purple !important;
@@ -42,8 +42,10 @@
 
         h1 {
             @include font-size($font-regular);
-            font-weight: $font-weight--medium;
+            font-weight: $font-weight--semibold;
             line-height: 30px;
+            letter-spacing: 1px;
+            font-family: $font-family-secondary;
             margin: 0;
             color: $white;
         }
@@ -85,7 +87,7 @@
             margin-left: 40px;
 
             a {
-                opacity: 0.5;
+                opacity: 0.6;
                 transition-duration: 0.15s;
 
                 &:hover {

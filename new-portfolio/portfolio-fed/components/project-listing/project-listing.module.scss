@@ -3,13 +3,19 @@
 @import "./base/breakpoints";
 
 .projectListing {
-    margin: 165px auto;
+    margin: 0 auto;
     max-width: 55rem;   
-    padding: 0 15px;
+    padding: 165px 15px;
+
+    @include media-breakpoint-down(md) {
+        padding: 45px 15px;
+    }
 
     h2 {
-        font-weight: $font-weight--medium;
+        font-weight: $font-weight--semibold;
         font-family: $font-family-secondary;
+        margin-bottom: 20px;
+        letter-spacing: 1px;
         @include font-size($font-medium);
         position: relative;
         display: flex;
