@@ -27,22 +27,34 @@ const sidebar = {
     }
 };
 
-export default function Header({whiteHeader, props}) {
+export default function Header({lightHeader, props}) {
     const [isOpen, toggleOpen] = useCycle(false, true);
     const containerRef = useRef(null);
     const { height } = useDimensions(containerRef);
+
+    function toggleTheme(e) {
+        console.log("test");
+        const container = document.querySelector("html");
+        if (e.target.checked) {
+          container.classList.add("pink-theme");
+        } else {
+          container.classList.remove("dark-theme");
+        }
+      }
+
     return (
             <motion.header
                 initial={false}
                 animate={isOpen ? "open" : "closed"}
-                className={`${styles.header} ${whiteHeader && !isOpen ? styles["header--white"] : ""}`}                
+                className={`${styles.header} ${lightHeader && !isOpen ? styles["header--light"] : ""}`}                
                 custom={height}
                 ref={containerRef}
             >
+                <input type="checkbox" onChange={e => toggleTheme(e)}/>
                 <motion.nav variants={sidebar}>
-                    <MenuMobile resumeLink={props.resumeLink} />
+                    <MenuMobile resumeLink={props.resumeLink} close={() => toggleOpen()}/>
                 </motion.nav>
-                <MenuDesktop whiteHeader={whiteHeader && !isOpen ? true : false} resumeLink={props.resumeLink} toggle={() => toggleOpen()} isOpen={isOpen} />
+                <MenuDesktop lightHeader={lightHeader && !isOpen ? true : false} resumeLink={props.resumeLink} toggle={() => toggleOpen()} isOpen={isOpen} />
             </motion.header>
     )
 }

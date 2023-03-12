@@ -7,10 +7,9 @@ import { motion } from "framer-motion";
 
 const ease = [0.08, 0.37, 0.45, 0.89];
 
-export default function projectItem({ project, footer }) {
-  console.log(project);
+export default function projectItem({ project, footer, header }) {
   return (
-    <Layout className="white-bg" whiteFooter="footer--white" whiteHeader={true} footer={footer}>
+    <Layout header={header} className="light-bg" whiteFooter="footer--white" lightHeader={true} footer={footer}>
       <div className='container'>
         <div className={styles.project}>
           <header className={styles.project__header}> 
@@ -76,12 +75,13 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const [projectRes, footerRes] = await Promise.all([
+  const [headerRes, projectRes, footerRes] = await Promise.all([
+    fetchAPI("/header"),
     fetchAPI("/projects", { populate: ["image", "Banner"], filters: {slug: params.slug}}),
     fetchAPI("/footer"),
   ])
   return {
-    props: { project: projectRes.data[0], footer: footerRes.data.attributes },
+    props: { header: headerRes.data.attributes, project: projectRes.data[0], footer: footerRes.data.attributes },
     revalidate: 1,
   };
 }

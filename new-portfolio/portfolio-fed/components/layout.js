@@ -1,13 +1,13 @@
 import Footer from './shared/footer/index';
 import Header from './shared/header/index';
 
-export default function Layout({ children, header, whiteHeader, whiteFooter, footer, className }) {
+export default function Layout({ children, header, lightHeader, whiteFooter, footer, className }) {
     return (
         <>
-            <Header whiteHeader={whiteHeader} props={header}/>
-            <main className={className}>
+            <Header lightHeader={lightHeader} props={header}/>
+            <div className={className} id="container">
                 {children}
-            </main>
+            </div>
             <Footer footer={footer} className={whiteFooter} />
         </>
     )

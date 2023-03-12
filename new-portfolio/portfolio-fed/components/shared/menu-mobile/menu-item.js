@@ -20,14 +20,15 @@ const variants = {
 };
 
 
-export default function MenuItem({ item, link, setHref }) {
+export default function MenuItem({ item, link, setHref, close }) {
+  console.log(close)
   return (
     <motion.li
       variants={variants}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.95 }}
     >
-      <Link href={link} passHref={setHref}>
+      <Link href={link} passHref={setHref} onClick={close}>
         {item}
       </Link>
     </motion.li>

@@ -27,7 +27,6 @@
       font-family: $font-family-secondary;
       line-height: 60px;  
       margin-bottom: 15px;
-      color: $white;
 
       @include media-breakpoint-down (sm) {
           @include font-size($font-x-big);

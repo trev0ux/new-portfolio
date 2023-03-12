@@ -4,21 +4,25 @@ import styles from './project-item.module.scss';
 import React, { useEffect, useState } from 'react';
 import Tilt from "react-parallax-tilt";
 import ReactMarkdown from 'react-markdown';
+import { useRef } from "react";
+
+
 
 export default function Project(props) {
-  const [externalLink, setExternalLink] = useState({as: "", href: ""})
+  const [externalLink, setExternalLink] = useState({ as: "", href: "" })
   let setHref;
+  const scrollRef = useRef(null)
 
   useEffect(() => {
-    isExternalLink(); 
+    isExternalLink();
   }, [])
 
   function isExternalLink() {
-    if (props.externalLink === null || props.externalLink === undefined) {    
-      setExternalLink({as: `/project/${props.slug}`, href: "/project/[id]"});
+    if (props.externalLink === null || props.externalLink === undefined) {
+      setExternalLink({ as: `/project/${props.slug}`, href: "/project/[id]" });
       setHref = false;
     } else {
-      setExternalLink({as: props.externalLink, href: props.externalLink})
+      setExternalLink({ as: props.externalLink, href: props.externalLink })
       setHref = true;
     }
   }
@@ -52,7 +56,7 @@ export default function Project(props) {
           </div>
           <div className={styles.project__tags}>
             <ReactMarkdown>
-                {props.tags}                  
+              {props.tags}
             </ReactMarkdown>
           </div>
         </div>

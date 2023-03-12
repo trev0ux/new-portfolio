@@ -1,8 +1,25 @@
 $light-blue: #F8F9FE;
-$dark-main: #1D1E21;
-$white: #FFFEFA;
 $grey-one: #A9ACBB;
 $pleasant-purple: #414141;
 $text-blue: #182837;
 $orange: #ff2e00;
 $light-pink: #FEB4D4;
+
+@import "theme";
+
+html {
+    .pink-theme {
+        $background: $light-pink;
+        $font-color: #363636;
+    
+        @import "theme";
+    }
+    
+    .dark-theme {
+         background: $pleasant-purple;
+         $font-color: #fff;
+  
+         @import "theme"
+    }
+  
+  }

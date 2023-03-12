@@ -11,7 +11,7 @@ const variants = {
   }
 };
 
-const MenuMobile = ({resumeLink}) => {
+const MenuMobile = ({resumeLink, close}) => {
   const itemIds = [{id: 1, item: "About me", link: "/about-me"}, { id: 2, item: "Resume", link: `${resumeLink}`, passHref: true} , {id: 3, item: "Work", link: "/#work"}, {id: 4, item: "Contact", link: "/#footer"}];
 
   return (
@@ -19,7 +19,7 @@ const MenuMobile = ({resumeLink}) => {
       className={styles.navMobile}
       variants={variants}>
       {itemIds.map(i => (
-        <MenuItem item={i.item} link={i.link} key={i.id} passHref={i.passHref}>
+        <MenuItem item={i.item} link={i.link} key={i.id} passHref={i.passHref} close={close}>
         </MenuItem>
       ))}
     </motion.ul>

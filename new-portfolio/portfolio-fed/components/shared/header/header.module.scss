@@ -8,8 +8,9 @@
     z-index: 1;
     background: $dark-main;
 
-    &--white {
+    &--light {
         background-color: $light-pink;
+        color: $dark-main !important;
 
         svg:last-child {
             stroke: $pleasant-purple !important;

@@ -3,9 +3,9 @@ import styles from "./menu-desktop.module.scss";
 import { MenuToggle } from '../menu-mobile/menu-toggle';
 
 
-export default function Navbar({ toggle, whiteHeader, resumeLink }) {
+export default function Navbar({ toggle, lightHeader, resumeLink }) {
     return (
-        <nav className={`${styles.navbar} ${whiteHeader ? styles["navbar--white"] : ""}`} >
+        <nav className={`${styles.navbar} ${lightHeader ? styles["navbar--light"] : ""}`} >
             <Link href="/">
                 <div className={styles.navbar__logo}>
                     <h1>

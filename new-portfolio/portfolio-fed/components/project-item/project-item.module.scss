@@ -32,7 +32,7 @@
         font-family: $font-family-secondary;
 
         @include media-breakpoint-down(md) {
-            @include font-size($font-regular)
+            @include font-size($font-regular);
         }
     }
 

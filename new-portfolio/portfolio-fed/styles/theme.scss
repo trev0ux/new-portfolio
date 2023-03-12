@@ -1,0 +1,4 @@
+@mixin theme($background-color, $font-color) {
+    $dark-main: $background-color;
+    $white: $font-color;
+}
