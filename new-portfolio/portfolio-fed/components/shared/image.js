@@ -1,5 +1,5 @@
 import NextImage from "next/legacy/image";
-import getStrapiMedia from '../lib/imageUrl';
+import getStrapiMedia from '../../lib/imageUrl';
 
 const Image = ({ image, sizes, width, height, objectFit, alt }) => {
   return (

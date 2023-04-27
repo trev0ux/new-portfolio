@@ -1,25 +1,21 @@
-import NextImage from "../image";
+import NextImage from "../shared/image";
 import Link from 'next/link';
 import styles from './project-item.module.scss';
 import React, { useEffect, useState } from 'react';
 import Tilt from "react-parallax-tilt";
 import ReactMarkdown from 'react-markdown';
-import { useRef } from "react";
 
 
-
-export default function Project(props) {
+export default function projectItem(props) {
   const [externalLink, setExternalLink] = useState({ as: "", href: "" })
   let setHref;
-  const scrollRef = useRef(null)
-
   useEffect(() => {
     isExternalLink();
   }, [])
 
-  function isExternalLink() {
+  const isExternalLink = () => {
     if (props.externalLink === null || props.externalLink === undefined) {
-      setExternalLink({ as: `/project/${props.slug}`, href: "/project/[id]" });
+      setExternalLink({ as: null, href: `/projects/${props?.slug}` });
       setHref = false;
     } else {
       setExternalLink({ as: props.externalLink, href: props.externalLink })
@@ -37,8 +33,8 @@ export default function Project(props) {
             <div className={styles.project__image}>
               <NextImage
                 image={props.image}
-                height={1000}
-                width={1000}
+                height={500}
+                width={425}
                 alt={props.alt}
                 objectFit="cover"
                 sizes="(max-width: 768px) 400px,

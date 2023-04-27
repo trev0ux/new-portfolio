@@ -1,9 +1,10 @@
 import { useRef } from "react";
-import MenuDesktop from "../menu-desktop";
+import MenuDesktop from "./menu-desktop";
 import { motion, useCycle } from "framer-motion";
-import { useDimensions } from "../../use-dimensions";
-import MenuMobile  from "../menu-mobile";
+import { useDimensions } from "./use-dimensions";
+import MenuMobile from "./menu-mobile";
 import styles from "./header.module.scss";
+
 
 const sidebar = {
     open: (height = 1000) => ({
@@ -27,34 +28,23 @@ const sidebar = {
     }
 };
 
-export default function Header({lightHeader, props}) {
+export default function Header({props, isDarkTheme, darkTheme }) {
     const [isOpen, toggleOpen] = useCycle(false, true);
     const containerRef = useRef(null);
     const { height } = useDimensions(containerRef);
 
-    function toggleTheme(e) {
-        console.log("test");
-        const container = document.querySelector("html");
-        if (e.target.checked) {
-          container.classList.add("pink-theme");
-        } else {
-          container.classList.remove("dark-theme");
-        }
-      }
-
     return (
-            <motion.header
-                initial={false}
-                animate={isOpen ? "open" : "closed"}
-                className={`${styles.header} ${lightHeader && !isOpen ? styles["header--light"] : ""}`}                
-                custom={height}
-                ref={containerRef}
-            >
-                <input type="checkbox" onChange={e => toggleTheme(e)}/>
-                <motion.nav variants={sidebar}>
-                    <MenuMobile resumeLink={props.resumeLink} close={() => toggleOpen()}/>
-                </motion.nav>
-                <MenuDesktop lightHeader={lightHeader && !isOpen ? true : false} resumeLink={props.resumeLink} toggle={() => toggleOpen()} isOpen={isOpen} />
-            </motion.header>
+        <motion.header
+            initial={false}
+            animate={isOpen ? "open" : "closed"}
+            className={styles.header}
+            custom={height}
+            ref={containerRef}
+        >
+            <motion.nav variants={sidebar}>
+                <MenuMobile resumeLink={props.resumeLink} close={() => toggleOpen()} />
+            </motion.nav>
+            <MenuDesktop isDarkTheme={isDarkTheme} darkTheme={darkTheme} resumeLink={props.resumeLink} toggle={() => toggleOpen()} isOpen={isOpen} />
+        </motion.header>
     )
 }

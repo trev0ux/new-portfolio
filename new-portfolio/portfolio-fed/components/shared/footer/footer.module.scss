@@ -3,16 +3,74 @@
 @import "./base/breakpoints";
 
 .footer {
-    border-top: 1px solid rgba($white, 0.3);
-    padding-top: 105px;
-    max-width: 90vw;
-    margin: 0 auto;
-    padding-left: 15px;
-    padding-right: 15px;
+    background-color: var(--footer-bg);
 
-    @include media-breakpoint-down(sm) {
-        padding-top: 75px;
-        padding-bottom: 50px;
+    &__section {
+        padding-top: 105px;
+        max-width: 90vw;
+        margin: 0 auto;
+        padding-left: 15px;
+        padding-right: 15px;
+    
+        @include media-breakpoint-down(sm) {
+            padding-top: 75px;
+            padding-bottom: 50px;
+        }
+
+        > a,
+        h3 {
+            font-weight: $font-weight--regular;
+            @include font-size($font-regular);
+            line-height: 20px;
+            text-align: center;
+            display: block;
+            margin: 0;
+    
+            color: var(--footer-text);
+    
+            @include media-breakpoint-down(sm) {
+                @include font-size($font-small);
+            }
+        }
+    
+        h4 {
+            font-family: $font-family-secondary;
+            font-weight: $font-weight--semibold;
+            @include font-size($font-x-large);
+            line-height: 48px;
+            text-align: center;
+            margin: 40px 0;
+    
+            color: var(--footer-text);
+    
+            @include media-breakpoint-down(sm) {
+                @include font-size($font-large);
+            }
+        }
+    
+        > div:last-child {
+            display: flex;
+            justify-content: space-between;
+            padding: 105px 0 50px;
+    
+            @include media-breakpoint-down(sm) {
+                flex-wrap: wrap;
+                padding: 75px 0 0;
+                flex-direction: column-reverse;
+                align-items: center;
+            }
+    
+            h6 {
+                font-style: normal;
+                font-weight: 300;
+                @include font-size($font-small);
+                line-height: 35px;
+                margin: 0;
+                /* identical to box height, or 219% */
+    
+                color: var(--footer-text);
+            }
+        }
     }
 
     &__icons {
@@ -36,15 +94,21 @@
 
             li {
                 border-radius: 8px;
-                border: 2px solid #414141;
+                border: 2px solid var(--footer-text);
                 padding: 12px;
                 width: 220px;
                 list-style-type: none;
                 transition: all 0.15s;
                 cursor: pointer;
+                opacity: 0.8;
 
                 &:hover {
                     background-color: $pleasant-purple;
+                    opacity: 1;
+
+                    h6 {
+                        color: $white;
+                    }
 
                     a > svg {
                         stroke: $white;
@@ -69,8 +133,9 @@
                     > svg {
                         width: 20px;
                         height: 20px;
-                        stroke: #8e8f90;
+                        stroke: var(--footer-text);
                         stroke-width: 2;
+                        fill-opacity: 0.6;
                     }
                 }
 
@@ -81,73 +146,17 @@
                     svg {
                         width: 24px;
                         height: 24px;
-                        fill: #8e8f90;
+                        fill: var(--footer-text);
                     }
 
                     h6 {
                         margin: 0 0 0 15px;
-                        color: $white;
+                        color: var(--footer-text);
                         @include font-size($font-regular);
                         font-weight: $font-weight--regular;
                     }
                 }
             }
-        }
-    }
-
-    > a,
-    h3 {
-        font-weight: $font-weight--regular;
-        @include font-size($font-regular);
-        line-height: 20px;
-        text-align: center;
-        display: block;
-        margin: 0;
-
-        color: #d9d9d9;
-
-        @include media-breakpoint-down(sm) {
-            @include font-size($font-small);
-        }
-    }
-
-    h4 {
-        font-family: $font-family-secondary;
-        font-weight: $font-weight--semibold;
-        @include font-size($font-x-large);
-        line-height: 48px;
-        text-align: center;
-        margin: 40px 0;
-
-        color: #fefdf9;
-
-        @include media-breakpoint-down(sm) {
-            @include font-size($font-large);
-        }
-    }
-
-    > div:last-child {
-        display: flex;
-        justify-content: space-between;
-        margin: 105px 0 50px;
-
-        @include media-breakpoint-down(sm) {
-            flex-wrap: wrap;
-            margin-top: 75px;
-            margin-bottom: 0;
-            flex-direction: column-reverse;
-            align-items: center;
-        }
-
-        h6 {
-            font-style: normal;
-            font-weight: 300;
-            @include font-size($font-small);
-            line-height: 35px;
-            margin: 0;
-            /* identical to box height, or 219% */
-
-            color: #c4c4c4;
         }
     }
 }

@@ -37,6 +37,15 @@
     },
     "experience": {
       "type": "richtext"
+    },
+    "skills": {
+      "type": "richtext"
+    },
+    "subtitleSkills": {
+      "type": "string"
+    },
+    "descriptionTest": {
+      "type": "richtext"
     }
   }
 }

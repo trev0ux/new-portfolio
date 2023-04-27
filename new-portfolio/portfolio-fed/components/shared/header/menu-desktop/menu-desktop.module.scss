@@ -14,25 +14,7 @@
 
     @include media-breakpoint-down(sm) {
         padding: 20px 0;
-        background-color: $dark-main;
-    }
-
-    &--light {
-        background-color: $light-pink;
-
-        h1, a {
-            color: $pleasant-purple !important;
-            opacity: 1 !important;
-        }
-
-        .navbar__logo svg {
-            fill: $pleasant-purple;
-        }
-        
-    }
-
-    &__toggle {
-        display: none;
+        background-color: var(--background-color);
     }
 
     &__logo {
@@ -47,13 +29,13 @@
             letter-spacing: 1px;
             font-family: $font-family-secondary;
             margin: 0;
-            color: $white;
+            color: var(--main-text-color);
         }
 
         svg {
             width: 25px;
             height: 25px;
-            fill: $white;
+            fill: var(--main-text-color);
             margin-right: 8px;
         }
 
@@ -62,6 +44,18 @@
         }
     }
     
+    &__theme {
+        border: none;
+        background: transparent;
+        padding: 0;
+        cursor: pointer;
+
+        img {
+            width: 30px;
+            height: 30px;
+        }
+    }
+
     > div {
         display: flex;
         justify-content: space-between;
@@ -69,15 +63,17 @@
 
     a {
         text-decoration: none;
-        color: $white;
+        color: var(--link-text-color);
     }
 
     ul {
         margin: 0;
         padding: 0;
         display: flex;
+
         @include media-breakpoint-down(lg) {
-            display: none;
+            margin: 0 15px 0 0;
+            height: 26px;
         }
 
         li {
@@ -86,12 +82,13 @@
             align-items: center;
             margin-left: 40px;
 
-            a {
-                opacity: 0.6;
-                transition-duration: 0.15s;
+            @include media-breakpoint-down(lg) {
+                margin-left: 0;
+            }
 
-                &:hover {
-                    opacity: 1;
+            &:not(:last-of-type) {
+                @include media-breakpoint-down(lg) {
+                    display: none;
                 }
             }
         }

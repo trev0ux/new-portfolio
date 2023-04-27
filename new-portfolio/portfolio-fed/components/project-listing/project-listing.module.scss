@@ -4,7 +4,7 @@
 
 .projectListing {
     margin: 0 auto;
-    max-width: 55rem;   
+    max-width: 55rem;
     padding: 165px 15px;
 
     @include media-breakpoint-down(md) {
@@ -20,22 +20,30 @@
         position: relative;
         display: flex;
         align-items: center;
-        color: $white;
-
-        @include media-breakpoint-down(sm) {
-            @include font-size($font-regular);
-        }
+        color: var(--main-text-color);
     }
 
-    section {
+   > ul {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
         grid-gap: 1.75rem;
-        gap: 1.75rem;
+        margin: 0;
+        padding: 0;
+
+        li {
+            list-style-type: none;
+        }
+
+        > li:nth-of-type(2n + 2) {
+            margin-top: 40px;
+
+            @include media-breakpoint-down(xs) {
+                margin-top: 0;
+            }        
+        }
 
         @include media-breakpoint-down(sm) {
             grid-template-columns: repeat(1, minmax(0, 1fr));
-
         }
     }
 }

@@ -1,10 +1,12 @@
 import App from "next/app";
 import Head from "next/head";
-import { createContext } from "react";
+import { createContext, useState } from "react";
 import { fetchAPI } from "../lib/api";
 import "../styles/globals.scss";
 import localFont from 'next/font/local';
-import { Sora } from 'next/font/google';
+import Layout from "../components/shared/layout";
+
+
 // Store Strapi Global object in context
 export const GlobalContext = createContext({});
 
@@ -33,14 +35,40 @@ const bogart = localFont({
   ],
 })
 
-const sora = Sora({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700']
+const sora = localFont({
+  src: [
+    {
+      path: '../assets/Sora/Sora-Bold.ttf',
+      weight: '700',
+      style: 'normal',
+    },
+    {
+      path: '../assets/Sora/Sora-Light.ttf',
+      weight: '300',
+      style: 'normal',
+    },
+    {
+      path: '../assets/Sora/Sora-Medium.ttf',
+      weight: '500',
+      style: 'normal',
+    },
+    {
+      path: '../assets/Sora/Sora-SemiBold.ttf',
+      weight: '600',
+      style: 'normal',
+    },
+    {
+      path: '../assets/Sora/Sora-Regular.ttf',
+      weight: '400',
+      style: 'normal',
+    },
+  ],
 })
 
-const MyApp = ({ Component, pageProps }) => {
+const MyApp = ({ Component, pageProps, header, footer }) => {
   const { global } = pageProps;
-  console.log(global.attributes);
+  const [darkTheme, setDarkTheme] = useState(true);
+  const isDarkTheme = () => setDarkTheme(!darkTheme);
 
   return (
     <>
@@ -56,12 +84,14 @@ const MyApp = ({ Component, pageProps }) => {
         <meta name="keywords" content="front-end developer, ui designer" />
         <meta name="msapplication-TileColor" content="#1D1E21" />
         <meta name="theme-color" content="#1D1E21" />
-      <link rel="canonical" href={global.url} />
+        <link rel="canonical" href={global.url} />
         <meta property="og:type" content="website" />
       </Head>
       <main className={`${sora.className} ${bogart.className}`}>
         <GlobalContext.Provider value={global.attributes}>
-          <Component {...pageProps} />
+            <Layout header={header} footer={footer} darkTheme={darkTheme} isDarkTheme={isDarkTheme}>
+              <Component {...pageProps} />
+            </Layout>
         </GlobalContext.Provider>
       </main>
     </>
@@ -75,16 +105,25 @@ MyApp.getInitialProps = async (ctx) => {
   // Calls page's `getInitialProps` and fills `appProps.pageProps`
   const appProps = await App.getInitialProps(ctx);
   // Fetch global site settings from Strapi
-  const globalRes = await fetchAPI("/global", {
-    populate: {
-      favicon: "*",
-      defaultSeo: {
-        populate: "*",
+  const [headerRes, globalRes, footerRes] = await Promise.all([
+    fetchAPI("/header"),
+    fetchAPI("/global", {
+      populate: {
+        favicon: "*",
+        defaultSeo: {
+          populate: "*",
+        },
       },
-    },
-  });
+    }),
+    fetchAPI("/footer")
+  ]);
   // Pass the data to our page via props
-  return { ...appProps, pageProps: { global: globalRes.data } };
+  return { 
+    ...appProps, 
+    pageProps: { global: globalRes.data },
+    header: headerRes.data.attributes,
+    footer: footerRes.data.attributes
+   };
 };
 
 export default MyApp;

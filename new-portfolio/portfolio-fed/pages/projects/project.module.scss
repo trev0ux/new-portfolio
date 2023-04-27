@@ -25,7 +25,7 @@
             @include font-size($font-xxx-large);
             font-family: $font-family-secondary;
             font-weight: $font-weight--semibold;
-            color: $pleasant-purple;
+            color: var(--main-text-color);
             margin: 30px 0 30px;
             line-height: 70px;
 
@@ -40,7 +40,7 @@
         h6 {
             @include font-size($font-regular);
             font-family: $font-family-secondary;
-            color: $pleasant-purple;
+            color: var(--main-text-color);
             font-weight: $font-weight--semibold;
             margin-bottom: 5px;
             margin-top: 0;
@@ -56,7 +56,7 @@
                 margin-bottom: 5px;
                 list-style-type: none;
                 line-height: 30px;
-                color: $pleasant-purple;
+                color: var(--main-text-color);
             }
         }
     }
@@ -93,7 +93,7 @@
         }
 
         p {
-            color: $pleasant-purple;
+            color: var(--main-text-color);
             font-weight: $font-weight--light;
             @include font-size($font-regular);
             line-height: 30px;
@@ -102,7 +102,7 @@
         h5 {
             @include font-size($font-medium);
             margin: 0 0 10px;
-            color: $pleasant-purple;
+            color: var(--main-text-color);
             font-weight: $font-weight--semibold;
 
             @include media-breakpoint-down(sm) {
@@ -159,7 +159,7 @@
             }
 
             h6 {
-                color: $pleasant-purple;
+                color: var(--main-text-color);
                 margin-bottom: 15px;
             }
 
@@ -173,10 +173,10 @@
                     display: flex;
                     align-items: center;
                     margin-bottom: 20px;
-                    color: $pleasant-purple;
+                    color: var(--main-text-color);
 
                     a {
-                        color: $pleasant-purple;
+                        color: var(--main-text-color);
                         @include font-size($font-regular);
                         font-weight: $font-weight--light;
                     }
@@ -193,7 +193,7 @@
                         height: 40px;
                         position: absolute;
                         bottom: -30px;
-                        background-color: $pleasant-purple;
+                        background-color: var(--main-text-color);
                         left: -15px;
                         opacity: 0.6;
                     }
@@ -202,9 +202,9 @@
                         content: "";
                         width: 10px;
                         height: 10px;
-                        border: 2px solid $white;
+                        border: 2px solid var(--main-text-color);
                         border-radius: 100px;
-                        background-color: $dark-main;
+                        background-color: var(--background-color);
                         opacity: 0.6;
                         position: absolute;
                         box-sizing: border-box;

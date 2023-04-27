@@ -6,11 +6,11 @@
     position: sticky;
     top: 0;
     z-index: 1;
-    background: $dark-main;
+    background: var(--background-color);
 
     &--light {
         background-color: $light-pink;
-        color: $dark-main !important;
+        color: var(--background-color) !important;
 
         svg:last-child {
             stroke: $pleasant-purple !important;

@@ -6,12 +6,8 @@
     cursor: pointer;
     perspective: 500px;
 
-    &:nth-child(2), &:nth-child(4) {
-        margin-top: 40px;
-
-        @include media-breakpoint-down(xs) {
-            margin-top: 0;
-        }
+    a {
+        text-decoration: none;
     }
 
     @include media-breakpoint-down(xs) {
@@ -28,7 +24,7 @@
         font-weight: $font-weight--bold;
         line-height: 30px;
         margin: 0;
-        color: $white;
+        color: var(--main-text-color);
         font-family: $font-family-secondary;
 
         @include media-breakpoint-down(md) {
@@ -37,7 +33,7 @@
     }
 
     h4 {
-        color: #A9ACBB;
+        color: var(--company-name);
         line-height: 30px;
         font-family: $font-family-secondary;
         font-weight: $font-weight--bold;
@@ -62,7 +58,7 @@
 
     p {
         margin-bottom: 0px;
-        color: $white;
+        color: var(--main-text-color);
         @include font-size($font-regular);
         font-weight: $font-weight--light;
 
@@ -101,22 +97,17 @@
             padding: 0;
             margin: 0;
             display: flex;
+            gap: 10px;
 
             li {
-                background-color: $pleasant-purple;
+                background-color: var(--tags-color);
                 border-radius: 4px;
                 display: block;
                 padding: 5px 15px;
-                color: $white;
-                margin-right: 10px;
+                color: var(--footer-text);
                 font-weight: $font-weight--regular;
                 @include font-size($font-small);
                 transition: all .2s;
-    
-    
-                &:hover {
-                    background-color: rgba($pleasant-purple, 0.6);
-                }
             }
         }
     }
@@ -127,10 +118,11 @@
         span {
             font-weight: $font-weight--regular;
             @include font-size($font-small);
-            color: $white;
+            color: var(--main-text-color);
             border-radius: 5px;
             display: block;
             margin: 5px 0 10px;
+            line-height: 25px;
 
             @include media-breakpoint-down(md) {
                 @include font-size($font-small)

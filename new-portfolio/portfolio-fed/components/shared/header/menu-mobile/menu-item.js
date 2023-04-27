@@ -1,4 +1,3 @@
-import * as React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
@@ -21,7 +20,6 @@ const variants = {
 
 
 export default function MenuItem({ item, link, setHref, close }) {
-  console.log(close)
   return (
     <motion.li
       variants={variants}

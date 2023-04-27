@@ -41,7 +41,7 @@
       line-height: 30px;  
       margin-top: 0;
       margin-bottom: 40px;
-      color: $grey-one;
+      color: var(--sub-text-color);
 
       @include media-breakpoint-down(sm) {
           line-height: 25px;
@@ -72,82 +72,6 @@
         100% {
             transform: translate(0%, 15px);
             opacity: 0;
-        }
-    }
-}
-
-.works-section {
-    background-color: $text-blue;
-    padding: 100px 0;
-    margin-bottom: 25px;
-    position: relative;
-
-    &__wave {
-        position: absolute;
-        top: -25px;
-        width: 100%;
-        overflow: hidden;
-    }
-
-    &__wave-down {
-        position: absolute;
-        bottom: -25px;
-        transform: rotate(180deg);
-        overflow: hidden;
-        width: 100%;
-    }
-
-    &__card {
-        @include media-breakpoint-down(lg) {
-            margin-bottom: 30px;
-        }
-
-        h3 {
-            font-weight: $font-weight--bold;
-            @include font-size($font-x-big);
-            color: #fff;
-            margin-bottom: 10px;
-        }
-
-        header {
-            margin-bottom: 25px;
-        }
-
-        h6 {
-            color: #c4c4c4;
-            font-weight: $font-weight--medium;
-            @include font-size($font-big);
-            margin-bottom: 15px;
-
-            @include media-breakpoint-down(md) {
-                @include font-size($font-small);
-            }
-        }
-
-        img {
-            width: 100%;
-            object-fit: cover;
-            object-position: center;
-        }
-    }
-
-    &__tags {
-        display: flex;
-        align-items: center;
-        flex-wrap: wrap;
-
-        span {
-            background-color: #3f5c79;
-            border-radius: 5px;
-            padding: 8px 15px;
-            color: #fff;
-            margin-right: 20px;
-            @include font-size($font-regular);
-
-            @include media-breakpoint-down(sm) {
-                @include font-size($font-small);
-                margin-bottom: 10px;
-            }
         }
     }
 }
