@@ -9,6 +9,9 @@ export default function Navbar({ toggle, lightHeader, resumeLink, isDarkTheme, d
         <nav className={`${styles.navbar} ${lightHeader ? styles["navbar--light"] : ""}`} >
             <Link href="/">
                 <div className={styles.navbar__logo}>
+                    <span>
+                        <Image src={darkTheme ? "/fire.gif" : "/fire-light.gif"} width={80} height={80} alt="logo fire animated" />
+                    </span>
                     <h1>
                         Lucas Amorim
                     </h1>

@@ -1,6 +1,28 @@
 //Responsive font size
 @import "~rfs/scss";
 
+@font-face {
+    font-family: 'Bogart';
+    font-style: normal;
+    font-weight: 700;
+    src: url('/public/fonts/Bogart/BOGARTBOLDTRIAL.TTF') format('truetype');
+}
+
+@font-face {
+    font-family: 'Bogart';
+    font-style: normal;
+    font-weight: 500;
+    src: url('/public/fonts/Bogart/BOGARTMEUDIUMTRIAL.TTF') format('truetype');
+}
+
+@font-face {
+    font-family: 'Bogart';
+    font-style: normal;
+    font-weight: 400;
+    src: url('/public/fonts/Bogart/BOGARTREGULARTRIAL.TTF') format('truetype');
+}
+
+
 $font-family-primary: 'Sora', sans-serif;
 $font-family-secondary: 'Bogart';
 

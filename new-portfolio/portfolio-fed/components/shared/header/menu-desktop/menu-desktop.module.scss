@@ -32,11 +32,21 @@
             color: var(--main-text-color);
         }
 
-        svg {
-            width: 25px;
-            height: 25px;
-            fill: var(--main-text-color);
-            margin-right: 8px;
+        span {
+            width: 41px;
+            height: 32px;
+            overflow: hidden;
+            position: relative;
+            display: block;
+            margin-right: 10px;
+            top: -1px;
+
+            img {
+                position: absolute;
+                top: -35px;
+                left: -20px;
+            }
+
         }
 
         @include media-breakpoint-down(sm) {

@@ -104,7 +104,7 @@
                 border-radius: 4px;
                 display: block;
                 padding: 5px 15px;
-                color: var(--footer-text);
+                color: $white;
                 font-weight: $font-weight--regular;
                 @include font-size($font-small);
                 transition: all .2s;

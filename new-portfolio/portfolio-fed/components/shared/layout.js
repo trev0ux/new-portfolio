@@ -13,10 +13,10 @@ export default function Layout({ children, header, footer, className, isDarkThem
     root?.style.setProperty("--main-text-color", darkTheme ? "#fefdf9" : "rgb(46 64 91)");
     root?.style.setProperty("--link-text-color", darkTheme ? "#fefdf9" : "rgb(46 64 91)");
     root?.style.setProperty("--sub-text-color", darkTheme ? "#A9ACBB" : "rgb(46 64 91)");
-    root?.style.setProperty("--tags-color", darkTheme ? "rgb(159,76,37)" : "#fdfcf6");
+    root?.style.setProperty("--tags-color", darkTheme ? "rgb(159,76,37)" : "rgb(46 64 91)");
     root?.style.setProperty("--company-name", darkTheme ? "#A9ACBB" : "rgb(46 64 91)");
     root?.style.setProperty("--footer-bg", darkTheme ? "rgb(159,76,37)" : "#fdfcf6");
-    root?.style.setProperty("--footer-text", darkTheme ? "#ffff" : "#262833");
+    root?.style.setProperty("--footer-text", darkTheme ? "#fefdf9" : "#262833");
     root?.style.setProperty("--footer-text-hover", darkTheme ? "#262833" : "#fdfcf6");
   }, [darkTheme]);
 

@@ -10,55 +10,30 @@ import Layout from "../components/shared/layout";
 // Store Strapi Global object in context
 export const GlobalContext = createContext({});
 
-const bogart = localFont({
-  src: [
-    {
-      path: '../assets/Bogart/BOGARTBOLDTRIAL.ttf',
-      weight: '700',
-      style: 'normal',
-    },
-    {
-      path: '../assets/Bogart/BOGARTLIGHTTRIAL.ttf',
-      weight: '300',
-      style: 'normal',
-    },
-    {
-      path: '../assets/Bogart/BOGARTMEDIUMTRIAL.ttf',
-      weight: '500',
-      style: 'normal',
-    },
-    {
-      path: '../assets/Bogart/BOGARTREGULARTRIAL.ttf',
-      weight: '400',
-      style: 'normal',
-    },
-  ],
-})
-
 const sora = localFont({
   src: [
     {
-      path: '../assets/Sora/Sora-Bold.ttf',
+      path: '../public/fonts/Sora/Sora-Bold.ttf',
       weight: '700',
       style: 'normal',
     },
     {
-      path: '../assets/Sora/Sora-Light.ttf',
+      path: '../public/fonts/Sora/Sora-Light.ttf',
       weight: '300',
       style: 'normal',
     },
     {
-      path: '../assets/Sora/Sora-Medium.ttf',
+      path: '../public/fonts/Sora/Sora-Medium.ttf',
       weight: '500',
       style: 'normal',
     },
     {
-      path: '../assets/Sora/Sora-SemiBold.ttf',
+      path: '../public/fonts/Sora/Sora-SemiBold.ttf',
       weight: '600',
       style: 'normal',
     },
     {
-      path: '../assets/Sora/Sora-Regular.ttf',
+      path: '../public/fonts/Sora/Sora-Regular.ttf',
       weight: '400',
       style: 'normal',
     },
@@ -87,7 +62,7 @@ const MyApp = ({ Component, pageProps, header, footer }) => {
         <link rel="canonical" href={global.url} />
         <meta property="og:type" content="website" />
       </Head>
-      <main className={`${sora.className} ${bogart.className}`}>
+      <main className={sora.className}>
         <GlobalContext.Provider value={global.attributes}>
             <Layout header={header} footer={footer} darkTheme={darkTheme} isDarkTheme={isDarkTheme}>
               <Component {...pageProps} />
